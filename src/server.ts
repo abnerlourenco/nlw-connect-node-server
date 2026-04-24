@@ -39,6 +39,10 @@ app.register(fastifySwaggerUi, {
   routePrefix: '/docs',
 })
 
+app.get('/health', () => {
+  return 'OK'
+})
+
 app.register(subscribeToEventRoute)
 app.register(accesInviteLinkRoute)
 app.register(getSubscriberInviteClicksRoute)
