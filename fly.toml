@@ -24,3 +24,14 @@ primary_region = 'gru'
   cpu_kind = 'shared'
   cpus = 1
   memory_mb = 1024
+
+[[services]]
+  http_checks = [
+    {
+      grace_period = "30s", # Increase this to 30s or 60s
+      interval = "10s",
+      method = "get",
+      path = "/health", # Ensure this route exists and returns 200
+      timeout = "2s"
+    }
+  ]
