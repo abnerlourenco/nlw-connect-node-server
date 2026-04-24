@@ -24,4 +24,4 @@ primary_region = 'gru'
 
 
 [deploy]
-  release_command = "npm drizzle kit migrate"
+  release_command = "npm run migrations"
