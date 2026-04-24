@@ -1,11 +1,34 @@
-FROM node:22-alpine AS builder
+FROM node:lts-alpine AS base
+
+# ---------------
+
+FROM base AS deps
 
 WORKDIR /app
 
-COPY . ./
+COPY package.json package-lock.json ./
 
-RUN npm ci
+RUN npm install --omit=dev
+
+# ---------------
+
+FROM base AS runner
+
+WORKDIR /app
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 api
+
+RUN chown api:nodejs .
+
+COPY --chown=api:nodejs . .
+COPY --from=deps /app/node_modules ./node_modules
+
+USER api
 
 EXPOSE 3333
 
-CMD [ "node", "--experimental-strip-types", "src/server.ts" ]
+ENV PORT=3333
+ENV HOSTNAME="0.0.0.0"
+
+ENTRYPOINT [ "npm", "run", "start"]
