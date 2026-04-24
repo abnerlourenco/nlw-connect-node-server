@@ -9,7 +9,7 @@ primary_region = 'gru'
 [build]
 
 [deploy]
-  release_command = 'npm run migrations'
+  release_command = "npm run migrations"
 
 [http_service]
   internal_port = 3333
