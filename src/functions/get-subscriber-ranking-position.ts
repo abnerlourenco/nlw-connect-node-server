@@ -1,4 +1,4 @@
-import { redis } from '../redis/client'
+import { redis } from '../redis/client.ts'
 
 interface GetSubscriberRankingPositionParams {
   subscriberId: string

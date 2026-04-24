@@ -1,6 +1,6 @@
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
 import { z } from 'zod'
-import { getSubscriberInvitesCount } from '../functions/get-subscriber-invites-count'
+import { getSubscriberInvitesCount } from '../functions/get-subscriber-invites-count.ts'
 
 export const getSubscriberInvitesCountRoute: FastifyPluginAsyncZod =
   async app => {

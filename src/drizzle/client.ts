@@ -1,7 +1,7 @@
 import { drizzle } from 'drizzle-orm/postgres-js'
 import postgres from 'postgres'
-import { env } from '../env'
-import { subscriptions } from './schema/subscriptions'
+import { env } from '../env.ts'
+import { subscriptions } from './schema/subscriptions.ts'
 
 export const pg = postgres(env.POSTGRES_URL)
 

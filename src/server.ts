@@ -8,13 +8,13 @@ import {
   serializerCompiler,
   validatorCompiler,
 } from 'fastify-type-provider-zod'
-import { env } from './env'
-import { accesInviteLinkRoute } from './routes/access-invite-link.routes'
-import { getRankingRoute } from './routes/get-ranking.routes'
-import { getSubscriberInviteClicksRoute } from './routes/get-subscriber-invite-clicks.routes'
-import { getSubscriberInvitesCountRoute } from './routes/get-subscriber-invites-count.routes'
-import { getSubscriberRankingPositionRoute } from './routes/get-subscriber-ranking-position.routes'
-import { subscribeToEventRoute } from './routes/subscribe-to-event.routes'
+import { env } from './env.ts'
+import { accesInviteLinkRoute } from './routes/access-invite-link.routes.ts'
+import { getRankingRoute } from './routes/get-ranking.routes.ts'
+import { getSubscriberInviteClicksRoute } from './routes/get-subscriber-invite-clicks.routes.ts'
+import { getSubscriberInvitesCountRoute } from './routes/get-subscriber-invites-count.routes.ts'
+import { getSubscriberRankingPositionRoute } from './routes/get-subscriber-ranking-position.routes.ts'
+import { subscribeToEventRoute } from './routes/subscribe-to-event.routes.ts'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
